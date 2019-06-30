@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     Adapter adapter;
-    static ArrayList<MovieInfoModel> movieInfo;
+    ArrayList<MovieInfoModel> movieInfo;
 
     RecyclerView recyclerView;
 
