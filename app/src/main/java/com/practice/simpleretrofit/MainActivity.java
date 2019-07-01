@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void fetchMovieInfo() {
+
         Retrofit retrofit = new Retrofit.Builder().baseUrl(ApiService.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -53,12 +54,13 @@ public class MainActivity extends AppCompatActivity {
                             retrievedData.get(i).getImageurl(),
                             retrievedData.get(i).getBio()));
                 }
+
                 createRecyclerView();
             }
 
             @Override
             public void onFailure(Call<List<MovieInfoModel>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "failed to retrieve data\ncheck your internet connection", Toast.LENGTH_LONG);
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 

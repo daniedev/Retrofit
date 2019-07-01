@@ -4,8 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class MovieInfoModel {
 
-    @SerializedName("name")
+
     private String name;
+
     private String realname;
     private String team;
     private String firstappearance;

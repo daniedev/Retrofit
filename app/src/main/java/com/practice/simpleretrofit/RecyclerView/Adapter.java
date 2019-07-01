@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.practice.simpleretrofit.MovieInfoModel;
 import com.practice.simpleretrofit.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,6 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> {
         inflater = LayoutInflater.from(context);
     }
 
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -38,6 +38,7 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         viewHolder.movieName.setText(movieInfo.get(i).getName());
         viewHolder.movieBio.setText(movieInfo.get(i).getBio());
+        Picasso.with(context).load(movieInfo.get(i).getImageurl()).into(viewHolder.movieImage);
     }
 
     @Override
