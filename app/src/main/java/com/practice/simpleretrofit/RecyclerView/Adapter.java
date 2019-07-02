@@ -12,16 +12,17 @@ import com.practice.simpleretrofit.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<ViewHolder> {
 
     Context context;
-    ArrayList<MovieInfoModel> movieInfo;
+    List<MovieInfoModel> movieInfo;
     LayoutInflater inflater;
     View view;
 
 
-    public Adapter(Context context, ArrayList<MovieInfoModel> movieInfoModel) {
+    public Adapter(Context context, List<MovieInfoModel> movieInfoModel) {
         this.context = context;
         this.movieInfo = movieInfoModel;
         inflater = LayoutInflater.from(context);

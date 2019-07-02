@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     Adapter adapter;
-    static ArrayList<MovieInfoModel> movieInfo;
+    List<MovieInfoModel> movieInfo= new ArrayList<>();;
 
     RecyclerView recyclerView;
 
@@ -41,19 +41,7 @@ public class MainActivity extends AppCompatActivity {
         serviceCall.enqueue(new Callback<List<MovieInfoModel>>() {
             @Override
             public void onResponse(Call<List<MovieInfoModel>> call, Response<List<MovieInfoModel>> response) {
-                List<MovieInfoModel> retrievedData = response.body();
-                movieInfo = new ArrayList<>();
-
-                for (int i = 0; i < retrievedData.size(); i++) {
-                    movieInfo.add(new MovieInfoModel(retrievedData.get(i).getName(),
-                            retrievedData.get(i).getRealname(),
-                            retrievedData.get(i).getTeam(),
-                            retrievedData.get(i).getFirstappearance(),
-                            retrievedData.get(i).getCreatedby(),
-                            retrievedData.get(i).getPublisher(),
-                            retrievedData.get(i).getImageurl(),
-                            retrievedData.get(i).getBio()));
-                }
+                movieInfo = response.body();
 
                 createRecyclerView();
             }
